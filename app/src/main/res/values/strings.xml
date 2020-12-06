@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SMB_s15540</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="add_item">Dodaj pierwszy element</string>
+    <string name="enter_item">Podaj dane elementu</string>
+    <string name="hint_item">Nazwa</string>
+    <string name="quantity_hint">Ilość</string>
+    <string name="save_title">Zapisz</string>
+    <string name="title_activity_list">SMB_s15540 - Lista zakupów</string>
+    <string name="sure_text">Jesteś pewien?</string>
+    <string name="no">Nie</string>
+    <string name="yes">Tak</string>
+    <string name="details_activity">Szczegóły elementu</string>
+    <string name="date">Data :</string>
+    <string name="quantity">Ilość :</string>
+    <string name="groceryname">Nazwa</string>
+    <string name="item_save_msg">Element zapisano!</string>
+</resources>
