@@ -1,5 +1,6 @@
 package com.s15540.smb.grocerylist.Activities;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,15 +15,25 @@ import yuku.ambilwarna.AmbilWarnaDialog;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private int currentColor = 0xff0000ff;
+    private int currentColor;
     private int currentSize = 12;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings2);
 
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
         final Button btnColor = findViewById(R.id.btn_color);
+
+        currentColor = pref.getInt("currentColor", 0xff0000ff);
+
+        btnColor.setBackgroundColor(currentColor);
+
+        super.onCreate(savedInstanceState);
+
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +74,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onOk(AmbilWarnaDialog dialog, int color) {
                 currentColor = color;
+                editor.putInt("currentColor", currentColor);
+                editor.commit();
                 Button btnColor = findViewById(R.id.btn_color);
                 btnColor.setBackgroundColor(currentColor);
             }
